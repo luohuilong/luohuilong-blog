@@ -1,1 +1,1 @@
-dut.pub
+blog.wait.loan
