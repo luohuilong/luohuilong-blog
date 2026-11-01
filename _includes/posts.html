@@ -1,0 +1,49 @@
+<article class="post">
+  <div class="entry_cont">
+    {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" | sort: "name" | reverse %}
+    
+    {% for year in posts_by_year %}
+      <div class="year-group">
+        <h3 class="year-title">
+          <button onclick="toggleYear(this)">{{ year.name }}</button>
+        </h3>
+        <ul class="post-list" style="display: none;">
+          {% for post in year.items %}
+            <li>
+              <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+              ({{ post.date | date: "%-m月%-d日" }})
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</article>
+
+<style>
+  .year-title button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: bold;
+    padding: 0;
+    color: #3354AA;
+  }
+  .year-title button:hover {
+  color: #444;
+}
+</style>
+
+<script>
+  function toggleYear(button) {
+    button.parentElement.nextElementSibling.style.display = 
+      button.parentElement.nextElementSibling.style.display === "none" ? "block" : "none";
+  }
+  
+  // 默认展开最新年份
+  document.addEventListener("DOMContentLoaded", () => {
+    const firstList = document.querySelector(".post-list");
+    if (firstList) firstList.style.display = "block";
+  });
+</script>

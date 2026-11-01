@@ -1,0 +1,10 @@
+<nav id="nav_box" class="clearfix">
+  <ul class="container_16 clearfix" id="nav_menu">
+    <li {% if page.title == '首页' %} class="current" {% endif %}><a href="{{ site.url }}/">首页</a></li>
+    <li {% if page.title == '归档' %} class="current" {% endif %}><a href="{{ site.url }}{{ site.base_url }}/posts/" title="归档">归档</a></li>
+    <li {% if page.title == '标签' %} class="current" {% endif %}><a href="{{ site.url }}{{ site.base_url }}/tags/ " title="标签">标签</a></li>
+    <li {% if page.title == '留言' %} class="current" {% endif %}><a href="{{ site.url }}/chat.html " title="留言">留言</a></li>
+    <li {% if page.title == '关于' %} class="current" {% endif %}><a href="{{ site.url }}/about.html " title="关于">关于</a></li>
+    <li class="subscribe"><a href="{{ site.url }}/feed.xml" rel="alternate" type="application/rss+xml" target="_blank"><img src="{{ site.url }}/assets/img/rss-b.png" alt="rss" /></a></li>
+  </ul>
+</nav>

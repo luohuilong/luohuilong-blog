@@ -1,0 +1,33 @@
+<aside class="grid_4" id="sidebar">
+  <div class="widget">
+    <h3>分类</h3>
+    <ul>
+      {% for category in site.categories %}
+      <li><a href="{{ site.url }}{{ site.base_url }}/categories/{{ category | first | downcase}}/">{{ category | first }}</a> ( {{ category | last | size }} )</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% if site.related_posts and page.type != 'category' and page.type != 'tag' and page.type != 'post list' %}
+  <div class="widget">
+    <h3>相关文章</h3>
+    <ul>
+      {% for post in site.categories.[page.category] limit:5 %}
+      <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% comment %} 分类聚合页不显示近期文章 {% endcomment %}
+  {% if page.type != 'catelist' %}
+  <div class="widget">
+    <h3>近期文章</h3>
+    <ul>
+      {% for post in site.posts limit:5 %}
+      <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</aside>
+<!-- end #sidebar -->
+

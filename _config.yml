@@ -1,0 +1,79 @@
+# --------------- #
+#  custom config  #
+# --------------- #
+url: https://blog.wait.loan
+# 使用baseurl，会整站 /xxx 作为跟目录
+base_url: 
+blogroot: https://blog.wait.loan
+cdnroot: 
+blogname: 云帆笔记
+blogdesc: 遗忘是默认设置，而我在手动存档
+blogauthor: LuoHuiLong
+ga: #G-07CJTP6XHK
+gtm: #GTM-NHVJZMPB
+gads: #ca-pub-3058445836660656
+encoding: utf-8
+# --------------- #
+#   main config   #
+# --------------- #
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title.html
+#exclude: [Gemfile, Gemfile.lock, node_modules, Gruntfile.js, README.md, package.json]
+excerpt_separator: <!--more-->
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-sitemap
+# - jekyll-webp
+paginate: 5
+paginate_path: /page:num/
+
+# Markdown Processors
+kramdown:
+  input             : GFM
+  syntax_highlighter: rouge
+
+# Local Archives by archives plugin
+# Not support on github
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-categories-local
+    tag: archive-tags-local
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
+
+# Custom Archives
+# archives: github archives workflow
+# lists: posts and tags collections
+collections:
+  archives:
+    output: true
+    permalink: /:path/
+  lists:
+    output: true
+    permalink: /:path/
+
+# Sitemap exclusion
+# https://jekyllrb.com/docs/configuration/front-matter-defaults/
+defaults:
+  -
+    scope:
+      path: "lab/**/*.*"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "demo/**/*.*"
+    values:
+      sitemap: false
+  -
+    scope:
+      path: "assets/**/*.pdf"
+    values:
+      sitemap: false

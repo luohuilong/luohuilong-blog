@@ -1,0 +1,13 @@
+# --------------- #
+#  site cn config  #
+# --------------- #
+url: https://blog.wait.loan
+location: cn
+icp: 
+security: 
+blogroot: https://blog.wait.loan
+cdnroot: ""
+ga: 
+gtm: 
+gads: ""
+

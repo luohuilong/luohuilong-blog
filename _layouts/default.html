@@ -1,0 +1,8 @@
+---
+layout: base
+---
+{% for post in paginator.posts %}
+    {% include post.html %}
+{% endfor %}
+
+{% include paginator.html %}

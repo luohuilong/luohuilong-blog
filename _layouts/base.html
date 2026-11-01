@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+<meta content=yes name=mobile-web-app-capable />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="baidu-site-verification" content="codeva-0npzOKMgCC" />
+<meta name="renderer" content="webkit" />
+{% include title.html %}
+{% include meta.html %}
+{% seo title=false %}
+{% include assets.html %}
+{% if site.location != "cn" %}
+{% endif %}
+</head>
+<body>
+{% include header.html %}
+{% include nav.html %}
+<section class="container_16 clearfix">
+<section class="grid_12" id="content">
+{{ content }}
+</section>
+{% include sidebar.html %}
+{% include footer.html %}
+</section>
+{% include mermaid.html %}
+</body>
+</html>
